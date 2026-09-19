@@ -1,0 +1,18 @@
+{
+  "name": "مغامرة الرياضيات | الصف الخامس",
+  "short_name": "مغامرة الرياضيات",
+  "description": "تطبيق تفاعلي لممارسة رياضيات الصف الخامس باللغة العربية.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff8ec",
+  "theme_color": "#a9482e",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
