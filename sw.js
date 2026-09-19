@@ -1,4 +1,4 @@
-const CACHE_NAME = 'math5-expert-v1';
+const CACHE_NAME = 'math5-expert-v2';
 const APP_SHELL = [
   '/',
   '/index.html',
