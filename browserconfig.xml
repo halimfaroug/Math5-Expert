@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square150x150logo src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'><rect fill='%230051BA' width='150' height='150'/><text x='75' y='105' font-size='80' font-weight='bold' fill='%23FFD700' text-anchor='middle' font-family='Arial'>٥</text></svg>"/>
+            <wide310x150logo src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 310 150'><rect fill='%230051BA' width='310' height='150'/><text x='75' y='105' font-size='80' font-weight='bold' fill='%23FFD700' text-anchor='middle' font-family='Arial'>٥</text><text x='200' y='95' font-size='40' fill='%23ffffff' font-family='Arial'>Math5</text></svg>"/>
+            <square310x310logo src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 310 310'><rect fill='%230051BA' width='310' height='310'/><text x='155' y='200' font-size='150' font-weight='bold' fill='%23FFD700' text-anchor='middle' font-family='Arial'>٥</text></svg>"/>
+            <TileColor>#0051BA</TileColor>
+        </tile>
+        <notification>
+            <frequency_ms>604800</frequency_ms>
+            <polling-uri polling-frequency="60">
+                <notification-uuid id="1">Math5-Expert-Notifications</notification-uuid>
+            </polling-uri>
+        </notification>
+    </msapplication>
+</browserconfig>

@@ -1,0 +1,67 @@
+{
+  "name": "مغامرة الرياضيات ٥ - Math5 Expert",
+  "short_name": "مغامرة الرياضيات",
+  "description": "منصة تفاعلية شاملة لتعلم الرياضيات للصف الخامس الابتدائي",
+  "scope": "/",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0051BA",
+  "background_color": "#ffffff",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230051BA' width='192' height='192'/><text x='96' y='120' font-size='100' font-weight='bold' fill='%23FFD700' text-anchor='middle' font-family='Arial'>٥</text><text x='96' y='160' font-size='24' fill='%23ffffff' text-anchor='middle' font-family='Arial'>Math5</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%230051BA' width='512' height='512'/><text x='256' y='320' font-size='280' font-weight='bold' fill='%23FFD700' text-anchor='middle' font-family='Arial'>٥</text><text x='256' y='420' font-size='60' fill='%23ffffff' text-anchor='middle' font-family='Arial'>Math5</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%230051BA;stop-opacity:1' /><stop offset='100%25' style='stop-color:%231E9AB0;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='540' height='720'/><rect fill='%23ffffff' y='100' width='540' height='620' rx='30'/><text x='270' y='200' font-size='48' font-weight='bold' fill='%230051BA' text-anchor='middle' font-family='Arial'>مغامرة الرياضيات</text><rect fill='%231E9AB0' x='30' y='250' width='480' height='80' rx='10'/><text x='270' y='310' font-size='32' fill='%23ffffff' text-anchor='middle' font-family='Arial'>تمارين تفاعلية</text><circle fill='%23FFD700' cx='90' cy='400' r='30'/><text x='90' y='410' font-size='24' fill='%230051BA' text-anchor='middle' font-family='Arial'>⭐</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%230051BA;stop-opacity:1' /><stop offset='100%25' style='stop-color:%231E9AB0;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='1280' height='720'/><rect fill='%23ffffff' x='250' y='100' width='780' height='520' rx='30'/><text x='640' y='200' font-size='56' font-weight='bold' fill='%230051BA' text-anchor='middle' font-family='Arial'>مغامرة الرياضيات</text><rect fill='%231E9AB0' x='280' y='250' width='720' height='100' rx='10'/><text x='640' y='320' font-size='40' fill='%23ffffff' text-anchor='middle' font-family='Arial'>منصة تعليمية متقدمة</text></svg>",
+      "sizes": "1280x720",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "الدرس الأول - الأعداد الكبيرة",
+      "short_name": "الأعداد الكبيرة",
+      "description": "تعلم الأعداد الكبيرة والقيمة المكانية",
+      "url": "/index.html?chapter=1",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23FF6B6B' width='192' height='192'/><text x='96' y='120' font-size='100' font-weight='bold' fill='%23ffffff' text-anchor='middle' font-family='Arial'>1</text></svg>",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

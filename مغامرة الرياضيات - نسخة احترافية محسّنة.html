@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="منصة تفاعلية شاملة لتعلم الرياضيات للصف الخامس الابتدائي - Math5 Expert Platform">
+  <meta name="theme-color" content="#0051BA">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="مغامرة الرياضيات">
+  <meta name="apple-mobile-web-app-icon-url" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230051BA' width='192' height='192'/><text x='96' y='120' font-size='100' font-weight='bold' fill='%23FFD700' text-anchor='middle' font-family='Arial'>٥</text></svg>">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <meta name="msapplication-TileColor" content="#0051BA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مغامرة الرياضيات ٥">
+  <meta name="twitter:description" content="تطبيق تعليمي تفاعلي لرياضيات الصف الخامس">
+  <meta name="og:type" content="website">
+  <meta name="og:title" content="مغامرة الرياضيات ٥ - Math5 Expert">
+  <meta name="og:description" content="منصة تفاعلية شاملة لتعلم الرياضيات">
+  <meta name="og:url" content="https://math5expert.example.com">
+  <meta name="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'><rect fill='%230051BA' width='1200' height='630'/><text x='600' y='315' font-size='200' font-weight='bold' fill='%23FFD700' text-anchor='middle' font-family='Arial'>٥</text><text x='600' y='450' font-size='60' fill='%23ffffff' text-anchor='middle' font-family='Arial'>Math5 Expert</text></svg>">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230051BA' width='100' height='100'/><text x='50' y='75' font-size='60' font-weight='bold' fill='%23FFD700' text-anchor='middle' font-family='Arial'>٥</text></svg>">
+  <title>مغامرة الرياضيات ٥ - الإصدار الاحترافي المحسّن</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-teal: #1E9AB0;
+      --primary-dark-blue: #0051BA;
+      --accent-red: #C41E3A;
+      --accent-yellow: #FFD700;
+      --accent-green: #2ECC40;
+      --accent-purple: #9C27B0;
+      --accent-orange: #FF9800;
+      --bg-surface: #f3f2f2;
+      --bg-white: #ffffff;
+      --text-primary: #2b2118;
+      --text-secondary: #666666;
+      --text-muted: #999999;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, var(--bg-surface) 0%, #f8f6f1 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      overflow-x: hidden;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 280px;
+      background: linear-gradient(180deg, var(--primary-dark-blue) 0%, #003d8a 100%);
+      color: white;
+      padding: 25px 15px;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0, 81, 186, 0.2);
+      z-index: 1000;
+    }
+
+    .sidebar-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar-logo {
+      font-size: 48px;
+      margin-bottom: 12px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .sidebar-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .sidebar-subtitle {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 25px;
+    }
+
+    .sidebar-section-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .chapter-btn {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid transparent;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: all 0.3s;
+      font-family: 'Cairo', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chapter-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(-5px);
+      border-color: var(--accent-yellow);
+    }
+
+    .chapter-btn.active {
+      background: var(--accent-yellow);
+      color: var(--primary-dark-blue);
+      border-color: var(--accent-yellow);
+    }
+
+    .chapter-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .chapter-btn.active .chapter-number {
+      background: var(--primary-dark-blue);
+    }
+
+    .stats-panel {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+
+    .stat-mini {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+
+    .stat-mini:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-mini-label {
+      opacity: 0.8;
+    }
+
+    .stat-mini-value {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      margin-right: 280px;
+      flex: 1;
+      padding: 30px;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark-blue), var(--primary-teal));
+      color: white;
+      padding: 50px 40px;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 40px rgba(0, 81, 186, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+      border-radius: 50%;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .developer-credit {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-top: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* TOP STATS */
+    .top-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: all 0.3s;
+      border-right: 4px solid var(--primary-teal);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .stat-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-teal);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* PROGRESS */
+    .progress-section {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 14px;
+      background: #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-teal), var(--accent-green));
+      transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 0 15px rgba(30, 154, 176, 0.4);
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .achievements {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .badge:hover {
+      transform: scale(1.15);
+    }
+
+    .badge.locked {
+      opacity: 0.3;
+      background: #e8e8e8;
+    }
+
+    .badge.unlocked {
+      background: linear-gradient(135deg, var(--accent-yellow), #ffb300);
+      box-shadow: 0 4px 16px rgba(255, 215, 0, 0.4);
+      animation: pulse-badge 2s infinite;
+    }
+
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 4px 16px rgba(255, 215, 0, 0.4); }
+      50% { box-shadow: 0 4px 24px rgba(255, 215, 0, 0.6); }
+    }
+
+    /* CHAPTER SECTION */
+    .chapter {
+      margin-bottom: 50px;
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chapter-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 25px;
+    }
+
+    .chapter-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--primary-dark-blue), var(--primary-teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      box-shadow: 0 8px 24px rgba(0, 81, 186, 0.3);
+      flex-shrink: 0;
+    }
+
+    .chapter-info h2 {
+      font-size: 36px;
+      color: var(--primary-teal);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .chapter-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .exercises-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .exercise-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exercise-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(30, 154, 176, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .exercise-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+      border-color: var(--primary-teal);
+    }
+
+    .exercise-card:hover::before {
+      opacity: 1;
+    }
+
+    .exercise-card.completed {
+      background: linear-gradient(135deg, rgba(76, 175, 80, 0.05), rgba(46, 204, 64, 0.05));
+      border-color: var(--accent-green);
+    }
+
+    .exercise-card.completed::after {
+      content: '✓';
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      background: var(--accent-green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+      animation: checkmark 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0) rotate(-45deg);
+      }
+      100% {
+        transform: scale(1) rotate(0);
+      }
+    }
+
+    .exercise-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 12px;
+    }
+
+    .exercise-number {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-teal), var(--primary-dark-blue));
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(30, 154, 176, 0.2);
+    }
+
+    .difficulty {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .difficulty.easy {
+      background: #C8E6C9;
+      color: #1B5E20;
+    }
+
+    .difficulty.medium {
+      background: #FFE0B2;
+      color: #E65100;
+    }
+
+    .difficulty.hard {
+      background: #FFCCCC;
+      color: #B71C1C;
+    }
+
+    .exercise-question {
+      font-size: 18px;
+      margin-bottom: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: 'Cairo', sans-serif;
+      transition: all 0.3s;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--primary-teal);
+      box-shadow: 0 0 0 3px rgba(30, 154, 176, 0.1);
+    }
+
+    .input-group button {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--primary-teal), var(--primary-dark-blue));
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .input-group button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 81, 186, 0.3);
+    }
+
+    .input-group button:active {
+      transform: translateY(0);
+    }
+
+    .multi-choice {
+      display: grid;
+      gap: 10px;
+    }
+
+    .choice-button {
+      padding: 14px 16px;
+      background: #f8f8f8;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: right;
+      font-size: 16px;
+      transition: all 0.3s;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 500;
+    }
+
+    .choice-button:hover {
+      border-color: var(--primary-teal);
+      background: #f0f7f9;
+      transform: translateX(-4px);
+    }
+
+    .choice-button.selected {
+      background: var(--primary-teal);
+      color: white;
+      border-color: var(--primary-teal);
+      box-shadow: 0 4px 12px rgba(30, 154, 176, 0.3);
+    }
+
+    .feedback {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: 15px;
+      display: none;
+      font-weight: 500;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .feedback.correct {
+      display: block;
+      background: #E8F5E9;
+      color: #1B5E20;
+      border-right: 4px solid var(--accent-green);
+      box-shadow: 0 2px 8px rgba(76, 175, 80, 0.15);
+    }
+
+    .feedback.incorrect {
+      display: block;
+      background: #FFEBEE;
+      color: #B71C1C;
+      border-right: 4px solid #ff8a80;
+      box-shadow: 0 2px 8px rgba(255, 138, 128, 0.15);
+    }
+
+    .tokens-earned {
+      font-size: 13px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--accent-yellow);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      animation: fadeIn 0.3s;
+    }
+
+    .hint {
+      background: #E3F2FD;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--primary-dark-blue);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      transition: all 0.3s;
+      border-right: 3px solid var(--primary-teal);
+    }
+
+    .hint:hover {
+      background: #d4e5f7;
+      transform: translateX(-4px);
+    }
+
+    .hint-content {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: #f5f5f5;
+      border-left: 3px solid var(--primary-teal);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.7;
+      animation: slideIn 0.3s;
+    }
+
+    .hint-content.show {
+      display: block;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    button.secondary {
+      flex: 1;
+      padding: 12px;
+      background: #f0f0f0;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-primary);
+      transition: all 0.3s;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+    }
+
+    button.secondary:hover {
+      background: #e0e0e0;
+      border-color: var(--primary-teal);
+    }
+
+    .floating-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-red), #a01729);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 28px;
+      box-shadow: 0 6px 20px rgba(196, 30, 58, 0.3);
+      z-index: 999;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .floating-btn:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+    }
+
+    .token-badge {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      background: white;
+      padding: 16px 24px;
+      border-radius: 50px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      z-index: 999;
+      border-right: 3px solid var(--accent-yellow);
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .token-icon {
+      font-size: 32px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    @media (max-width: 1200px) {
+      .sidebar {
+        width: 250px;
+      }
+      .main-content {
+        margin-right: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(100%);
+        width: 100%;
+        transition: transform 0.3s;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-right: 0;
+        padding: 20px;
+      }
+
+      .exercises-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 30px 20px;
+      }
+
+      header h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">🎓</div>
+      <div class="sidebar-title">مغامرة الرياضيات</div>
+      <div class="sidebar-subtitle">نسخة احترافية</div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">الفصول</div>
+      <button class="chapter-btn active" onclick="goToChapter('chapter1', this)">
+        <span class="chapter-number">1</span>
+        الأعداد الكبيرة
+      </button>
+      <button class="chapter-btn" onclick="goToChapter('chapter2', this)">
+        <span class="chapter-number">2</span>
+        الكسور
+      </button>
+      <button class="chapter-btn" onclick="goToChapter('chapter3', this)">
+        <span class="chapter-number">3</span>
+        الأشكال
+      </button>
+      <button class="chapter-btn" onclick="goToChapter('chapter4', this)">
+        <span class="chapter-number">4</span>
+        الضرب والقسمة
+      </button>
+      <button class="chapter-btn" onclick="goToChapter('chapter5', this)">
+        <span class="chapter-number">5</span>
+        الأنماط
+      </button>
+      <button class="chapter-btn" onclick="goToChapter('chapter6', this)">
+        <span class="chapter-number">6</span>
+        المسائل
+      </button>
+    </div>
+
+    <div class="stats-panel">
+      <div class="stat-mini">
+        <span class="stat-mini-label">التقدم</span>
+        <span class="stat-mini-value" id="sidebarProgress">0%</span>
+      </div>
+      <div class="stat-mini">
+        <span class="stat-mini-label">مكتمل</span>
+        <span class="stat-mini-value" id="sidebarCompleted">0/66</span>
+      </div>
+      <div class="stat-mini">
+        <span class="stat-mini-label">الرموز</span>
+        <span class="stat-mini-value" id="sidebarTokens">0⭐</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <header>
+      <h1>🎓 مغامرة الرياضيات ٥</h1>
+      <p>منصة تفاعلية شاملة لتعلم الرياضيات</p>
+      <div class="developer-credit">
+        طُورت بواسطة <strong>حالم فاروق عبدالرحيم</strong> | Math5 Expert Platform
+      </div>
+    </header>
+
+    <div class="token-badge">
+      <span class="token-icon">⭐</span>
+      <span>الرموز: <span id="tokenCount">0</span></span>
+    </div>
+
+    <div class="top-stats">
+      <div class="stat-card">
+        <div class="stat-icon">📚</div>
+        <div class="stat-value" id="totalExercises">0</div>
+        <div class="stat-label">تمارين كاملة</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✓</div>
+        <div class="stat-value" id="completedCount">0</div>
+        <div class="stat-label">مكتملة</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-value" id="successRate">0%</div>
+        <div class="stat-label">معدل النجاح</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-value" id="tokensEarned">0</div>
+        <div class="stat-label">رموز مكتسبة</div>
+      </div>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-info">
+        <span>تقدمك في الدورة</span>
+        <span id="progressText">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="achievements" id="achievementsBadges"></div>
+    </div>
+
+    <div id="chaptersContainer"></div>
+  </main>
+
+  <button class="floating-btn" onclick="resetProgress()" title="إعادة تعيين">🔄</button>
+
+  <script>
+    const chapters = {
+      chapter1: { title: 'الأعداد الكبيرة والقيمة المكانية', icon: '🔢', color: '#FF6B6B', exercises: [] },
+      chapter2: { title: 'الكسور والعمليات عليها', icon: '✂️', color: '#4ECDC4', exercises: [] },
+      chapter3: { title: 'الأشكال الهندسية والقياس', icon: '📐', color: '#45B7D1', exercises: [] },
+      chapter4: { title: 'الضرب والقسمة المتقدمة', icon: '✖️', color: '#FFA07A', exercises: [] },
+      chapter5: { title: 'الأنماط والجبر الأساسي', icon: '🎨', color: '#98D8C8', exercises: [] },
+      chapter6: { title: 'حل المسائل التطبيقية', icon: '🧩', color: '#F7DC6F', exercises: [] }
+    };
+
+    const exerciseData = {
+      chapter1: [
+        { q: 'كم عدد الآحاد في 5,234؟', t: 'i', a: '4', h: ['انظر الرقم الأخير'], d: 'e' },
+        { q: 'اكتب: سبعة آلاف وثلاثمائة وواحد', t: 'i', a: '7301', h: ['آلاف - مئات - عشرات - آحاد'], d: 'm' },
+        { q: 'أي يساوي 9,000 + 500 + 20 + 3؟', t: 'm', o: ['9,523', '9,352', '9,325', '9,532'], a: '9,523', h: ['اجمع الأرقام'], d: 'm' },
+        { q: 'رتب: 4,567 و 4,657 و 4,756', t: 'm', o: ['4,567-4,657-4,756', '4,657-4,567-4,756', '4,756-4,657-4,567'], a: '4,567-4,657-4,756', h: ['من الأصغر'], d: 'h' },
+        { q: 'قيمة 7 في 27,456؟', t: 'm', o: ['7', '70', '700', '7,000'], a: '7,000', h: ['منزلة الألوف'], d: 'm' },
+        { q: 'أكمل: 5,000 + 400 + ____ + 2 = 5,432', t: 'i', a: '30', h: ['منزلة العشرات'], d: 'm' },
+        { q: 'كم مئة في 3,456؟', t: 'i', a: '4', h: ['الرقم الثالث من اليمين'], d: 'e' },
+        { q: 'السلسلة: 1,000 - 2,000 - 3,000 - ____', t: 'i', a: '4,000', h: ['الفرق بين العددين'], d: 'e' },
+        { q: 'العدد قبل 5,000 مباشرة؟', t: 'i', a: '4,999', h: ['انقص واحد'], d: 'e' },
+        { q: 'قارن: 9,999 ____ 10,000', t: 'm', o: ['أصغر', 'أكبر', 'يساوي'], a: 'أصغر', h: ['9,999 أم 10,000'], d: 'm' }
+      ],
+      chapter2: [
+        { q: 'أي كسر يمثل النصف؟', t: 'm', o: ['1/3', '1/2', '1/4', '2/3'], a: '1/2', h: ['جزء من جزأين'], d: 'e' },
+        { q: '1/2 = __/4', t: 'i', a: '2', h: ['اضرب في 2/2'], d: 'm' },
+        { q: 'قارن: 2/3 ____ 3/4', t: 'm', o: ['أصغر', 'أكبر', 'متساوي'], a: 'أصغر', h: ['3/4=0.75, 2/3≈0.67'], d: 'h' },
+        { q: 'كم ربع في 2؟', t: 'i', a: '8', h: ['2 × 4'], d: 'm' },
+        { q: '1/4 + 1/4 = ؟', t: 'm', o: ['1/8', '1/2', '2/8', '1/4'], a: '1/2', h: ['1+1=2'], d: 'm' },
+        { q: '1/3 = __/6', t: 'i', a: '2', h: ['اضرب في 2/2'], d: 'm' },
+        { q: '3/4 - 1/4 = ؟', t: 'i', a: '1/2', h: ['3-1=2, يصبح 2/4=1/2'], d: 'm' },
+        { q: 'أي أكبر: 1/2 أم 1/3؟', t: 'm', o: ['1/2', '1/3', 'متساويان'], a: '1/2', h: ['كلما صغر المقام'], d: 'e' },
+        { q: 'كم ثلث في 1؟', t: 'i', a: '3', h: ['1 ÷ (1/3)'], d: 'e' },
+        { q: '5/10 = 1/__', t: 'i', a: '2', h: ['اقسم على 5'], d: 'm' }
+      ],
+      chapter3: [
+        { q: 'كم ضلع للمربع؟', t: 'i', a: '4', h: ['أضلاع متساوية'], d: 'e' },
+        { q: 'محيط مربع ضلعه 5 سم؟', t: 'i', a: '20', h: ['5+5+5+5'], d: 'm' },
+        { q: 'محيط مستطيل: 6 سم طول، 4 سم عرض؟', t: 'i', a: '20', h: ['2(6+4)'], d: 'm' },
+        { q: 'كم ضلع للمثلث؟', t: 'm', o: ['2', '3', '4', '5'], a: '3', h: ['ثلاثي الأضلاع'], d: 'e' },
+        { q: 'مساحة مربع ضلعه 4 سم؟', t: 'i', a: '16', h: ['4×4'], d: 'm' },
+        { q: 'مساحة مستطيل: 8 سم × 3 سم؟', t: 'i', a: '24', h: ['8×3'], d: 'm' },
+        { q: 'محيط 20 سم، طول الضلع = ؟', t: 'i', a: '5', h: ['20÷4'], d: 'm' },
+        { q: 'مثلث متساوي الأضلاع، كل ضلع 6 سم، المحيط؟', t: 'i', a: '18', h: ['6+6+6'], d: 'm' },
+        { q: 'كم زاوية قائمة في المربع؟', t: 'i', a: '4', h: ['كل زاوية 90'], d: 'e' },
+        { q: 'مساحة = 36 سم²، طول الضلع = ؟', t: 'i', a: '6', h: ['√36'], d: 'h' }
+      ],
+      chapter4: [
+        { q: '7 × 8 = ؟', t: 'i', a: '56', h: ['7 مجموعات من 8'], d: 'e' },
+        { q: '36 ÷ 6 = ؟', t: 'i', a: '6', h: ['كم مرة 6 في 36؟'], d: 'm' },
+        { q: '25 × 4 = ؟', t: 'i', a: '100', h: ['25×4'], d: 'm' },
+        { q: '144 ÷ 12 = ؟', t: 'i', a: '12', h: ['12×12'], d: 'h' },
+        { q: '9 × ____ = 72', t: 'i', a: '8', h: ['72÷9'], d: 'm' },
+        { q: '48 ÷ 8 = ؟', t: 'm', o: ['5', '6', '7', '8'], a: '6', h: ['8×6=48'], d: 'e' },
+        { q: '12 × 11 = ؟', t: 'i', a: '132', h: ['(10×12)+(1×12)'], d: 'm' },
+        { q: '63 ÷ 7 = ؟', t: 'i', a: '9', h: ['7×9=63'], d: 'e' },
+        { q: '15 × 6 = ؟', t: 'i', a: '90', h: ['15×6'], d: 'm' },
+        { q: '100 ÷ 5 = ؟', t: 'i', a: '20', h: ['5×20=100'], d: 'm' }
+      ],
+      chapter5: [
+        { q: '2, 4, 6, 8, ____', t: 'i', a: '10', h: ['أضف 2'], d: 'e' },
+        { q: '1, 3, 5, 7, ____', t: 'i', a: '9', h: ['أضف 2'], d: 'e' },
+        { q: '3, 6, 9, 12, ____', t: 'i', a: '15', h: ['أضف 3'], d: 'e' },
+        { q: '1, 4, 9, 16, ____', t: 'i', a: '25', h: ['مربعات: 1², 2², 3²...'], d: 'h' },
+        { q: 'إذا س + 5 = 12، قيمة س = ؟', t: 'i', a: '7', h: ['12-5=س'], d: 'm' },
+        { q: 'إذا 2س = 16، قيمة س = ؟', t: 'i', a: '8', h: ['16÷2'], d: 'm' },
+        { q: '5, 10, 15, 20, ____', t: 'i', a: '25', h: ['أضف 5'], d: 'e' },
+        { q: 'إذا س - 3 = 7، قيمة س = ؟', t: 'i', a: '10', h: ['7+3'], d: 'm' },
+        { q: '2, 6, 18, 54, ____', t: 'i', a: '162', h: ['اضرب في 3'], d: 'h' },
+        { q: '4 + ____ = 10', t: 'i', a: '6', h: ['10-4'], d: 'e' }
+      ],
+      chapter6: [
+        { q: '3 علب بـ 12 ريال، الإجمالي = ؟', t: 'i', a: '36', h: ['3×12'], d: 'e' },
+        { q: '50 ريال، أنفقت 23، الباقي = ؟', t: 'i', a: '27', h: ['50-23'], d: 'e' },
+        { q: '25 طالب في 5 صفوف، كل صف = ؟', t: 'i', a: '5', h: ['25÷5'], d: 'e' },
+        { q: 'ركض 8 كم السبت، 6 كم الأحد، الإجمالي = ؟', t: 'i', a: '14', h: ['8+6'], d: 'e' },
+        { q: '120 كتاب، أعيرت 45، الباقي = ؟', t: 'i', a: '75', h: ['120-45'], d: 'm' },
+        { q: '6 دفاتر بـ 8 ريال، الإجمالي = ؟', t: 'i', a: '48', h: ['6×8'], d: 'm' },
+        { q: 'حبل 10 م، قطعت 3 م، الباقي = ؟', t: 'i', a: '7', h: ['10-3'], d: 'e' },
+        { q: 'كتاب 25 ريال، دفتر 8 ريال، الفرق = ؟', t: 'i', a: '17', h: ['25-8'], d: 'm' },
+        { q: 'مثلجة 2 ريال، تشتري 10، الإجمالي = ؟', t: 'i', a: '20', h: ['10×2'], d: 'e' },
+        { q: '60 زهرة، 1/3 حمراء، عدد الحمراء = ؟', t: 'i', a: '20', h: ['60÷3'], d: 'm' },
+        { q: 'تومي 4 ألعاب، أخته ضعفها، المجموع = ؟', t: 'i', a: '12', h: ['4 + (4×2)'], d: 'm' },
+        { q: 'ثمن دفتر 5 ريال، 3 دفاتر + قلم 2 ريال؟', t: 'i', a: '17', h: ['(3×5)+2'], d: 'm' },
+        { q: 'مثلث محيطه 15 سم، ضلع = ؟', t: 'i', a: '5', h: ['متساوي الأضلاع: 15÷3'], d: 'm' },
+        { q: 'حقيبة بـ 85 ريال، خصم 15 ريال؟', t: 'i', a: '70', h: ['85-15'], d: 'e' },
+        { q: 'سرعة 60 كم/ساعة، في ساعتين؟', t: 'i', a: '120', h: ['60×2'], d: 'm' },
+        { q: 'أجرة تاكسي 3 ريال، مسافات، 4 مسافات = ؟', t: 'i', a: '12', h: ['4×3'], d: 'e' }
+      ]
+    };
+
+    let completedEx = JSON.parse(localStorage.getItem('completedEx')) || {};
+    let tokens = JSON.parse(localStorage.getItem('tokens')) || 0;
+    let currentChapter = 'chapter1';
+
+    function initChapters() {
+      Object.keys(chapters).forEach((ch, idx) => {
+        chapters[ch].exercises = exerciseData[ch].map((e, i) => ({ ...e, id: `${ch}e${i}`, chapter: ch }));
+      });
+      renderChapters();
+      updateStats();
+    }
+
+    function renderChapters() {
+      const container = document.getElementById('chaptersContainer');
+      container.innerHTML = '';
+
+      Object.keys(chapters).forEach(ch => {
+        const chapter = chapters[ch];
+        const isVisible = ch === currentChapter;
+        const chapterDiv = document.createElement('div');
+        chapterDiv.className = 'chapter' + (isVisible ? '' : ' hidden');
+        chapterDiv.id = ch;
+        chapterDiv.style.display = isVisible ? 'block' : 'none';
+
+        chapterDiv.innerHTML = `
+          <div class="chapter-header">
+            <div class="chapter-icon" style="background: linear-gradient(135deg, ${chapter.color}, ${chapter.color}dd);">
+              ${chapter.icon}
+            </div>
+            <div class="chapter-info">
+              <h2>${chapter.title}</h2>
+            </div>
+          </div>
+          <div class="exercises-grid" id="grid-${ch}"></div>
+        `;
+
+        container.appendChild(chapterDiv);
+
+        const grid = document.getElementById(`grid-${ch}`);
+        chapter.exercises.forEach((ex, i) => {
+          grid.appendChild(createCard(ex, i + 1));
+        });
+      });
+    }
+
+    function createCard(ex, num) {
+      const card = document.createElement('div');
+      card.className = 'exercise-card' + (completedEx[ex.id] ? ' completed' : '');
+      card.id = `ex-${ex.id}`;
+
+      const inp = ex.t === 'i'
+        ? `<div class="input-group"><input type="text" class="ex-in" data-id="${ex.id}"><button onclick="check('${ex.id}')">تحقق</button></div>`
+        : `<div class="multi-choice">${ex.o.map(o => `<button class="choice-button" data-id="${ex.id}" onclick="sel(this, '${o}')">${o}</button>`).join('')}<button style="width:100%;padding:12px;margin-top:10px;background:linear-gradient(135deg,var(--primary-teal),var(--primary-dark-blue));color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Cairo';" onclick="check('${ex.id}')">تحقق</button></div>`;
+
+      card.innerHTML = `
+        <div class="exercise-header">
+          <span class="exercise-number">سؤال ${num}</span>
+          <span class="difficulty ${ex.d === 'e' ? 'easy' : ex.d === 'm' ? 'medium' : 'hard'}">
+            ${ex.d === 'e' ? 'سهل' : ex.d === 'm' ? 'متوسط' : 'صعب'}
+          </span>
+        </div>
+        <div class="exercise-question">${ex.q}</div>
+        ${inp}
+        <div class="hint" onclick="tglHint('${ex.id}')">💡 تلميح</div>
+        <div class="hint-content" id="h-${ex.id}">${ex.h.map(x => `<div>• ${x}</div>`).join('')}</div>
+        <div class="feedback" id="fb-${ex.id}"></div>
+        <div class="button-group" id="btn-${ex.id}" style="display:none"><button class="secondary" onclick="rst('${ex.id}')">إعادة</button></div>
+      `;
+      return card;
+    }
+
+    function sel(btn, opt) {
+      const id = btn.dataset.id;
+      document.querySelectorAll(`[data-id="${id}"]`).forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      btn.dataset.ans = opt;
+    }
+
+    function check(id) {
+      const ex = Object.values(exerciseData).flat().find(e => e.id === id);
+      let ans;
+      const card = document.getElementById(`ex-${id}`);
+
+      if (ex.t === 'i') {
+        ans = card.querySelector('.ex-in')?.value.trim();
+      } else {
+        ans = card.querySelector('.choice-button.selected')?.textContent.trim();
+      }
+
+      if (!ans) { alert('أدخل إجابة'); return; }
+
+      const fb = document.getElementById(`fb-${id}`);
+      const correct = String(ans) === String(ex.a);
+
+      if (correct) {
+        fb.className = 'feedback correct';
+        const pts = ex.d === 'e' ? 5 : ex.d === 'm' ? 10 : 15;
+        fb.innerHTML = `✓ ممتاز! <div class="tokens-earned">${pts} رموز</div>`;
+        completedEx[id] = true;
+        tokens += pts;
+        card.classList.add('completed');
+      } else {
+        fb.className = 'feedback incorrect';
+        fb.innerHTML = `✗ الإجابة الصحيحة: <strong>${ex.a}</strong>`;
+      }
+
+      document.getElementById(`btn-${id}`).style.display = 'flex';
+      localStorage.setItem('completedEx', JSON.stringify(completedEx));
+      localStorage.setItem('tokens', JSON.stringify(tokens));
+      updateStats();
+    }
+
+    function rst(id) {
+      const card = document.getElementById(`ex-${id}`);
+      const inp = card.querySelector('.ex-in');
+      if (inp) inp.value = '';
+      card.querySelectorAll('.choice-button').forEach(b => b.classList.remove('selected'));
+      document.getElementById(`fb-${id}`).innerHTML = '';
+      document.getElementById(`fb-${id}`).className = 'feedback';
+      document.getElementById(`btn-${id}`).style.display = 'none';
+    }
+
+    function tglHint(id) {
+      document.getElementById(`h-${id}`).classList.toggle('show');
+    }
+
+    function goToChapter(ch, btn) {
+      currentChapter = ch;
+      document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.chapter').forEach(c => c.style.display = 'none');
+      document.getElementById(ch).style.display = 'block';
+      updateStats();
+    }
+
+    function updateStats() {
+      const total = Object.values(exerciseData).flat().length;
+      const completed = Object.keys(completedEx).length;
+      const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+      document.getElementById('totalExercises').textContent = total;
+      document.getElementById('completedCount').textContent = completed;
+      document.getElementById('successRate').textContent = percent;
+      document.getElementById('tokensEarned').textContent = tokens;
+      document.getElementById('tokenCount').textContent = tokens;
+      document.getElementById('progressFill').style.width = percent + '%';
+      document.getElementById('progressText').textContent = percent + '%';
+
+      document.getElementById('sidebarProgress').textContent = percent + '%';
+      document.getElementById('sidebarCompleted').textContent = completed + '/' + total;
+      document.getElementById('sidebarTokens').textContent = tokens + '⭐';
+
+      updateBadges(completed);
+    }
+
+    function updateBadges(c) {
+      const badges = document.getElementById('achievementsBadges');
+      badges.innerHTML = '';
+      const ach = [
+        { e: '🌟', l: 'أول 5', t: 5 },
+        { e: '🔥', l: 'منتصف الطريق', t: 33 },
+        { e: '👑', l: 'خبير', t: 60 },
+        { e: '💎', l: 'الكمال', t: 66 }
+      ];
+      ach.forEach(a => {
+        const b = document.createElement('div');
+        b.className = 'badge' + (c < a.t ? ' locked' : ' unlocked');
+        b.textContent = a.e;
+        b.title = a.l;
+        badges.appendChild(b);
+      });
+    }
+
+    function resetProgress() {
+      if (confirm('إعادة تعيين كل التقدم؟')) {
+        completedEx = {};
+        tokens = 0;
+        localStorage.clear();
+        document.querySelectorAll('.exercise-card').forEach(c => {
+          c.classList.remove('completed');
+          const id = c.id.replace('ex-', '');
+          rst(id);
+        });
+        updateStats();
+      }
+    }
+
+    initChapters();
+
+    // PWA Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(registration => {
+            console.log('Service Worker registered successfully:', registration);
+            // Check for updates periodically
+            setInterval(() => {
+              registration.update();
+            }, 60000); // Check every minute
+          })
+          .catch(error => {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+
+      // Listen for controller change (update notification)
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        console.log('Service Worker controller changed - app updated');
+        // Optional: show update notification to user
+      });
+    }
+
+    // Request notification permission for future alerts
+    if ('Notification' in window && Notification.permission === 'default') {
+      // Don't auto-request, let user decide
+    }
+
+    // Detect when app goes online/offline
+    window.addEventListener('online', () => {
+      console.log('App is back online');
+      updateStats(); // Refresh stats when back online
+    });
+
+    window.addEventListener('offline', () => {
+      console.log('App is offline - using cached data');
+    });
+
+    // Add install prompt handler for PWA installation
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      console.log('Install prompt ready');
+      // You can store this and show install button when needed
+    });
+
+    // Page visibility - pause non-essential updates when hidden
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        console.log('App is hidden');
+      } else {
+        console.log('App is visible');
+        updateStats(); // Refresh when visible again
+      }
+    });
+  </script>
+</body>
+</html>
